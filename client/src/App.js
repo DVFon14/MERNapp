@@ -7,8 +7,11 @@ import States from "./states.js";
 function App() {
   return (
     <div>
-      <Banner />
-      <Login/>
+
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/states" element={<States />} />
+      </Routes>
     </div>
   );
 }

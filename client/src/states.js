@@ -1,8 +1,9 @@
 import React from 'react'
+import Banner from './banner'
 
 function States() {
   return (
-    <div>States</div>
+    <div><Banner />States</div>
   )
 }
 

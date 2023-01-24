@@ -8,7 +8,9 @@ function Login() {
     <div className="Auth-form-container">
       <form className="Auth-form">
         <div className="Auth-form-content">
-          <center><h3 className="Auth-form-title">Sign In</h3></center>
+          <center>
+            <h3 className="Auth-form-title">Sign In</h3>
+          </center>
 
           <center>
             <div className="form-group mt-3">
@@ -37,9 +39,11 @@ function Login() {
           <br />
           <center>
             <div className="d-grid gap-2 mt-3">
-              <button type="submit" className="btn btn-primary">
-                Submit
-              </button>
+              <Link to="/states">
+                <Button type="submit" className="btn btn-primary">
+                  Submit
+                </Button>
+              </Link>
             </div>
           </center>
         </div>
@@ -50,8 +54,6 @@ function Login() {
 
 export default Login;
 
-{/* <Link to="/">
-<Button type="submit" className="btn btn-primary">
+<button type="submit" className="btn btn-primary">
   Submit
-</Button>
-</Link> */}
+</button>;
