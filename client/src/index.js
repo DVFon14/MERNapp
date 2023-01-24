@@ -1,5 +1,6 @@
 //this is the file where we are going to connect our react
 //application to index.htlm file
+// import Banner from './banner.js'
 
 import React from "react";
 import ReactDOM from "react-dom/client";
