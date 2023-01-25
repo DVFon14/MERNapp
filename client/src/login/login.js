@@ -54,6 +54,4 @@ function Login() {
 
 export default Login;
 
-<button type="submit" className="btn btn-primary">
-  Submit
-</button>;
+//consider disabling the submit button if 
