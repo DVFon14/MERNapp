@@ -1,14 +1,11 @@
 //============== React import ==============//
-import { useRef } from "react";
+import React from "react";
+
 //============== Files and Folders imports ==============//
-import map1 from "./images/map1.jpeg";
+import map1 from "../images/map1.jpeg";
 
 //============== Material UI ==============//
 import { styled } from "@mui/material/styles";
-import Grid from "@mui/material/Grid";
-import Paper from "@mui/material/Paper";
-import Typography from "@mui/material/Typography";
-import ButtonBase from "@mui/material/ButtonBase";
 import Card from "@mui/material/Card";
 
 //============== Code ==============//
