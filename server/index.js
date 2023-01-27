@@ -3,7 +3,8 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 
-import homeRouter from './routes/homeRoutes.js' //in package.json we have "type:module", which allows us to import with a different name
+//in package.json we have "type:module", which allows us to import 'const homeRouter' from 'routes/homeRoutes' with a different name
+import homeRouter from './routes/homeRoutes.js' 
 
 const app = express(); 
 dotenv.config();

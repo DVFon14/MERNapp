@@ -1,3 +1,4 @@
+//information (model) the home posts should have: title (state name)and date of creation
 import mongoose, { mongo } from "mongoose";
 import { stringify } from "querystring";
 
