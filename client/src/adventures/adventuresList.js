@@ -7,7 +7,6 @@ import React, { useEffect, useRef, useState } from "react";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import Paper from "@mui/material/Paper";
 import Container from "@mui/material/Container";
 import Grow from "@mui/material/Grow";
 import Grid from "@mui/material/Grid";
@@ -23,11 +22,6 @@ import DialogContent from "@mui/material/DialogContent";
 //============== Code ==============//
 
 function AdventuresList(props) {
-  const dateRef = useRef("");
-  const detailsRef = useRef("");
-  const coPeopleRef = useRef("");
-  const cityRef = useRef("");
-  const notesRef = useRef("");
   const [listOfAdventures, setListOfAdventures] = useState([]);
   const [isUpdated, setIsUpdated] = React.useState(false);
   const [openEditDialog, setOpenEditDialog] = React.useState(false); //initially set to false because the edit button hasn't been pushed
@@ -38,34 +32,21 @@ function AdventuresList(props) {
   const notesEditRef = useRef("");
   const [editValues, setEditValues] = React.useState([]);
 
-//   async function postNewAdventure() {
-//     let payload = {
-//       date: dateRef.current.value,
-//       details: detailsRef.current.value,
-//       co_adventurers: coPeopleRef.current.value,
-//       city: cityRef.current.value,
-//       notes: notesRef.current.value,
-//       linkedStateID: props.StateID,
-//     }; //info being sent from client to API
-
-    // console.log("payload in postNewAdventure is: ", payload)
-
-    // await axios.post("http://localhost:3000/home/newAdventure", payload);
-    // setIsUpdated(!isUpdated);
-//   }
-
   async function GetAdventuresList() {
     let payload = { id: props.StateID };
-    console.log("payload in GetAdventuresList: ", payload)
+    console.log("payload in GetAdventuresList: ", payload);
 
-    //   //this is reaching out to the API and passing in the API URL
-    //   //The variable statePost is storing the info that comes back from the API URL
+    //this is reaching out to the API and passing in the API URL
+    //The variable statePost is storing the info that comes back from the API URL
     let adventuresPost = await axios.post(
       "http://localhost:3000/home/getAdventures",
       payload
     );
     let adventuresPostData = adventuresPost.data;
-    console.log("adventuresPostData in GetAdventuresList: ", adventuresPostData)
+    console.log(
+      "adventuresPostData in GetAdventuresList: ",
+      adventuresPostData
+    );
 
     setListOfAdventures(adventuresPostData);
   }
@@ -77,7 +58,7 @@ function AdventuresList(props) {
     setIsUpdated(!isUpdated);
   }
 
-  async function editAdventures() {
+  async function editAdventures() { //info being sent from client to API
     let payload = {
       id: editValues[5],
       date: dateEditRef.current.value,
@@ -86,7 +67,7 @@ function AdventuresList(props) {
       city: cityEditRef.current.value,
       notes: notesEditRef.current.value,
       linkedStateID: props.StateID,
-    }; //info being sent from client to API,  {"StateName": "Colorado"}
+    }; 
 
     await axios.post("http://localhost:3000/home/editAdventures", payload);
     setIsUpdated(!isUpdated);
@@ -112,7 +93,8 @@ function AdventuresList(props) {
       <br />
       <div>
         <Container maxwidth="lg">
-{/* EDIT DIALOG BOX ADVENTURES , from <Dialog> to </Dialog> ~ lines 114 to 194 */}
+
+          {/* EDIT DIALOG BOX ADVENTURES */}
           <Dialog open={openEditDialog} onClose={handleCloseEditDialog}>
             <DialogTitle>Edit State Name</DialogTitle>
             <DialogContent>
@@ -195,7 +177,7 @@ function AdventuresList(props) {
             </DialogActions>
           </Dialog>
 
-{/* LISTED ADVENTURES , from <Grow in> to </Grow> ~ lines 198 to 320 */}
+          {/* LISTED ADVENTURES */}
 
           <Grow in>
             <Container>
@@ -247,7 +229,6 @@ function AdventuresList(props) {
                     </Card>
                   </Grid>
                 ))}
-
               </Grid>
             </Container>
           </Grow>
