@@ -1,6 +1,6 @@
 //============== React import ==============//
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useRef } from "react";
 import { Link } from "react-router-dom";
 
 //============== Material UI ==============//
@@ -16,12 +16,31 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import axios from "axios";
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogTitle from '@mui/material/DialogTitle';
+import TextField from '@mui/material/TextField';
+import DialogContent from '@mui/material/DialogContent';
 
 //============== Code ==============//
 
 function StatesList(props) {
   const [listOfStates, setListOfStates] = useState([]);
-  const [isDeleted, setIsDeleted] = React.useState(false);
+  const [isUpdated, setIsUpdated] = React.useState(false);
+  const [openEditDialog, setOpenEditDialog] = React.useState(false); //initially set to false because the edit button hasn't been pushed
+  const stateNameRef = useRef("");
+  const [editStateValues, setEditStateValues] = React.useState([]);
+
+
+
+  function handleOpenEditDialog(StateId,StateName) { //this function is called when user hits edit
+    setEditStateValues([StateId, StateName])//stores the id and the state name
+    setOpenEditDialog(true); //this is true when user hits edit
+  }
+
+  function handleCloseEditDialog() {
+    setOpenEditDialog(false); //this is false when user hits cancel
+  }
 
   async function GetStatesList() {
     //this is reaching out to the API and passing in the API URL
@@ -37,21 +56,56 @@ function StatesList(props) {
     let payload = { id: StatePostId }; //info being sent from client to API,  {"StateName": "Colorado"}
     // console.log("payload in deleteState", payload);
 
-    await axios.post(
-      "http://localhost:3000/home/deleteState",
-      payload
-    );
-    setIsDeleted(!isDeleted)
+    await axios.post("http://localhost:3000/home/deleteState", payload);
+    setIsUpdated(!isUpdated);
+  }
+
+  async function editState() {
+    let payload = { id: editStateValues[0], title: stateNameRef.current.value }; //info being sent from client to API,  {"StateName": "Colorado"}
+    console.log("payload in editState", payload);
+
+    await axios.post("http://localhost:3000/home/editState", payload);
+    setIsUpdated(!isUpdated);
   }
 
   //whenever antyhing changes in the
   useEffect(() => {
     GetStatesList();
-  }, [props.needToUpdate, isDeleted]);
+  }, [props.needToUpdate, isUpdated]);
 
   return (
     <div>
       <Container maxwidth="lg">
+        <Dialog open={openEditDialog} onClose={handleCloseEditDialog}>
+          <DialogTitle>Edit State Name</DialogTitle>
+          <DialogContent>
+            <Grid item xl={15} sx={{ paddingRight: 5 }}>
+              <TextField
+                autoFocus
+                margin="dense"
+                id="name"
+                label="State Name"
+                type="text"
+                fullWidth
+                variant="outlined"
+                inputRef={stateNameRef}
+                defaultValue={editStateValues[1]}
+              ></TextField>
+            </Grid>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleCloseEditDialog}>Cancel</Button>
+            <Button
+              onClick={() => {
+                editState();
+                handleCloseEditDialog();
+              }}
+            >
+              Save
+            </Button>
+          </DialogActions>
+        </Dialog>
+
         <Grow in>
           <Container>
             <Grid
@@ -70,7 +124,14 @@ function StatesList(props) {
                       </Typography>
                     </CardContent>
                     <CardActions>
-                      <Button size="small">Edit</Button>
+                      <Button
+                        size="small"
+                        onClick={() => {
+                          handleOpenEditDialog(state._id, state.title);
+                        }}
+                      >
+                        Edit
+                      </Button>
                       <Link to="/adventures">
                         <Button type="details" className="btn btn-primary">
                           DETAILS
