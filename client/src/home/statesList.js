@@ -20,8 +20,8 @@ import axios from "axios";
 //============== Code ==============//
 
 function StatesList(props) {
-
-const [listOfStates, setListOfStates] = useState([]);
+  const [listOfStates, setListOfStates] = useState([]);
+  const [isDeleted, setIsDeleted] = React.useState(false);
 
   async function GetStatesList() {
     //this is reaching out to the API and passing in the API URL
@@ -30,15 +30,24 @@ const [listOfStates, setListOfStates] = useState([]);
     // console.log(statePost);
     let statePostData = statePost.data;
     // console.log("statePost data is: ", statePostData);
-    setListOfStates(statePostData)
+    setListOfStates(statePostData);
   }
 
-  //whenever antyhing changes in the 
+  async function deleteState(StatePostId) {
+    let payload = { id: StatePostId }; //info being sent from client to API,  {"StateName": "Colorado"}
+    // console.log("payload in deleteState", payload);
+
+    await axios.post(
+      "http://localhost:3000/home/deleteState",
+      payload
+    );
+    setIsDeleted(!isDeleted)
+  }
+
+  //whenever antyhing changes in the
   useEffect(() => {
     GetStatesList();
-    // console.log("props.needToUpdate is: ", props.needToUpdate);
-
-  }, [props.needToUpdate]);
+  }, [props.needToUpdate, isDeleted]);
 
   return (
     <div>
@@ -52,25 +61,32 @@ const [listOfStates, setListOfStates] = useState([]);
               alignItems="stretch"
               spacing={3}
             >
-              {listOfStates.map((state) =>(
-              <Grid key={state._id} item xs={12} sm={7}>
-                <Card sx={{ maxWidth: 400 }}>
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                      {state.title}
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Button size="small">Edit</Button>
-                    <Link to="/adventures">
-                      <Button type="details" className="btn btn-primary">
-                        DETAILS
+              {listOfStates.map((state) => (
+                <Grid key={state._id} item xs={12} sm={7}>
+                  <Card sx={{ maxWidth: 400 }}>
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="div">
+                        {state.title}
+                      </Typography>
+                    </CardContent>
+                    <CardActions>
+                      <Button size="small">Edit</Button>
+                      <Link to="/adventures">
+                        <Button type="details" className="btn btn-primary">
+                          DETAILS
+                        </Button>
+                      </Link>
+                      <Button
+                        size="small"
+                        onClick={() => {
+                          deleteState(state._id);
+                        }}
+                      >
+                        Delete
                       </Button>
-                    </Link>
-                    <Button size="small">Delete</Button>
-                  </CardActions>
-                </Card>
-              </Grid>
+                    </CardActions>
+                  </Card>
+                </Grid>
               ))}
             </Grid>
           </Container>
