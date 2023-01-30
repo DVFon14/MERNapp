@@ -1,4 +1,7 @@
+//============== React ==============//
+
 import React, { useEffect, useRef, useState } from "react";
+import { Route, Routes } from "react-router-dom";
 
 //============== Material UI ==============//
 
@@ -46,7 +49,7 @@ function Form(props) {
     let payload = { id: props.StateID };
 
     //this is reaching out to the API and passing in the API URL
-    //The variable statePost is storing the info that comes back from the API URL
+    //The variable adventuresPost is storing the info that comes back from the API URL
     let adventuresPost = await axios.post(
       "http://localhost:3000/home/getAdventures",
       payload
@@ -138,8 +141,10 @@ function Form(props) {
                         postNewAdventure();
                       }}
                     >
-                      Submit
+                      Submit <br/>
                     </Button>
+
+
                     {/* <Button
                         variant="contained"
                         color="secondary"

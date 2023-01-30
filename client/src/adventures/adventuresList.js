@@ -193,11 +193,11 @@ function AdventuresList(props) {
                     <Card sx={{ maxWidth: 345 }}>
                       <CardContent>
                         <Typography gutterBottom variant="h5" component="div">
-                          {adventure.date}
-                          {adventure.details}
-                          {adventure.co_adventurers}
-                          {adventure.city}
-                          {adventure.notes}
+                          Date: {adventure.date} <br />
+                          Details: {adventure.details} <br />
+                          Co-Adventurers: {adventure.co_adventurers} <br />
+                          City: {adventure.city} <br />
+                          Notes: {adventure.notes} <br />
                         </Typography>
                       </CardContent>
                       <CardActions>
