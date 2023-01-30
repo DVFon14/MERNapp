@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 //============== Files and Folders imports ==============//
 
@@ -10,7 +10,6 @@ import Login from "./login/login.js";
 import States from "./home/states.js";
 // import Form from "./home/form.js";
 import Adventures from "./adventures/adventures";
-
 
 //============== Material UI ==============//
 // import Container from "@mui/material/Container";
@@ -33,7 +32,6 @@ function App() {
         <Route path="/adventures" element={<Adventures />} />
       </Routes>
       <br />
-      
     </div>
   );
 }

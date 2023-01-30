@@ -31,8 +31,6 @@ function StatesList(props) {
   const stateNameRef = useRef("");
   const [editStateValues, setEditStateValues] = React.useState([]);
 
-
-
   function handleOpenEditDialog(StateId,StateName) { //this function is called when user hits edit
     setEditStateValues([StateId, StateName])//stores the id and the state name
     setOpenEditDialog(true); //this is true when user hits edit
@@ -132,7 +130,7 @@ function StatesList(props) {
                       >
                         Edit
                       </Button>
-                      <Link to="/adventures">
+                      <Link to="/adventures" state={state._id}>
                         <Button type="details" className="btn btn-primary">
                           DETAILS
                         </Button>
