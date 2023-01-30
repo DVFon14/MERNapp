@@ -5,6 +5,10 @@ import {
   createNewState,
   deleteStatePost,
   editStatePost,
+  createNewAdventure,
+  getAdventuresPosts,
+  deleteAdventurePost,
+  editAdventuresPost,
 } from "../controllers/homePosts.js";
 
 const homeRouter = express.Router();
@@ -18,5 +22,9 @@ homeRouter.post("/deleteState", deleteStatePost);
 homeRouter.post("/editState", editStatePost);
 
 // Adventure routes
+homeRouter.post("/newAdventure", createNewAdventure);
+homeRouter.post("/getAdventures", getAdventuresPosts);
+homeRouter.post("/deleteAdventures", deleteAdventurePost);
+homeRouter.post("/editAdventures", editAdventuresPost);
 
 export default homeRouter;
