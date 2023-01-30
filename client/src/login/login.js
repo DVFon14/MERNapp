@@ -56,7 +56,7 @@ function Login() {
               <div className="d-grid gap-2 mt-3">
                 <Link to="/states">
                   <Button type="submit" className="btn btn-primary">
-                    Submit
+                    Login
                   </Button>
                 </Link>
               </div>

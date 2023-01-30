@@ -1,6 +1,7 @@
 //============== React ==============//
 
 import React, { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { Route, Routes } from "react-router-dom";
 
 //============== Material UI ==============//
@@ -143,6 +144,18 @@ function Form(props) {
                     >
                       Submit <br/>
                     </Button>
+
+                    <Link to="/states" style={{ textDecoration: 'none' }}>
+                    <Button
+                      variant="contained"
+                      color="error"
+                      size="large"
+                      type="submit"
+                      fullWidth
+                    >
+                      Back to States Page <br/>
+                    </Button>
+                      </Link>
 
 
                     {/* <Button

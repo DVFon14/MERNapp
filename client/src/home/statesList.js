@@ -137,7 +137,7 @@ function StatesList(props) {
                       >
                         EDIT
                       </Button>
-                      <Link to="/adventures" state={state._id}>
+                      <Link to="/adventures" style={{ textDecoration: 'none' }} state={state._id}>
                         <Button type="details" className="btn btn-primary">
                           DETAILS
                         </Button>
