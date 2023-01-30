@@ -18,9 +18,8 @@ function Adventures() {
   return (
     <div >
       <Banner />
+      <br />
       <Forms StateID={StateID}/>
-
-      
     </div>
   )
 }

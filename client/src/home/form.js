@@ -17,6 +17,9 @@ import Grid from "@mui/material/Grid";
 // import Card from "@mui/material/Card";
 // import CardContent from "@mui/material/CardContent";
 // import CardActions from "@mui/material/CardActions";
+
+//============== File imports ==============//
+
 import StatesList from "./statesList";
 
 //============== Code ==============//
@@ -46,6 +49,9 @@ function Form() {
 
   return (
     <div>
+
+{/* ADD NEW STATE FROM, from <Container> to </Container> ~ lines 251 to 317 */}
+
       <Container maxwidth="lg">
         <Grow in>
           <Container>

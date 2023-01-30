@@ -1,6 +1,6 @@
 //============== React import ==============//
 
-import React, { useEffect, useState,useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 
 //============== Material UI ==============//
@@ -16,11 +16,11 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import axios from "axios";
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogTitle from '@mui/material/DialogTitle';
-import TextField from '@mui/material/TextField';
-import DialogContent from '@mui/material/DialogContent';
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogTitle from "@mui/material/DialogTitle";
+import TextField from "@mui/material/TextField";
+import DialogContent from "@mui/material/DialogContent";
 
 //============== Code ==============//
 
@@ -31,8 +31,9 @@ function StatesList(props) {
   const stateNameRef = useRef("");
   const [editStateValues, setEditStateValues] = React.useState([]);
 
-  function handleOpenEditDialog(StateId,StateName) { //this function is called when user hits edit
-    setEditStateValues([StateId, StateName])//stores the id and the state name
+  function handleOpenEditDialog(StateId, StateName) {
+    //this function is called when user hits edit
+    setEditStateValues([StateId, StateName]); //stores the id and the state name
     setOpenEditDialog(true); //this is true when user hits edit
   }
 
@@ -74,6 +75,9 @@ function StatesList(props) {
   return (
     <div>
       <Container maxwidth="lg">
+
+ {/* EDIT DIALOG BOX STATE, from <Dialog> to </Dialog> ~ lines 114 to 194 */}
+
         <Dialog open={openEditDialog} onClose={handleCloseEditDialog}>
           <DialogTitle>Edit State Name</DialogTitle>
           <DialogContent>
@@ -104,6 +108,9 @@ function StatesList(props) {
           </DialogActions>
         </Dialog>
 
+{/* LISTED STATES, from <Grow in> to </Grow> ~ lines 198 to 320 */}
+
+
         <Grow in>
           <Container>
             <Grid
@@ -128,7 +135,7 @@ function StatesList(props) {
                           handleOpenEditDialog(state._id, state.title);
                         }}
                       >
-                        Edit
+                        EDIT
                       </Button>
                       <Link to="/adventures" state={state._id}>
                         <Button type="details" className="btn btn-primary">
@@ -141,7 +148,7 @@ function StatesList(props) {
                           deleteState(state._id);
                         }}
                       >
-                        Delete
+                        DELETE
                       </Button>
                     </CardActions>
                   </Card>
