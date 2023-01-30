@@ -1,27 +1,32 @@
 //creating all the handlers for our routes
 //to reduce the logic in routes/homeRoutes
 import homePostMessage from "../models/homePostSchema.js";
+import adventuresModel from "../models/adventuresSchema.js";
+
 
 export const getHomePosts = async (req, res) => {
   try {
-    //this line is retrieving all the posts we currently have in the database
-    // const homePosts = await homePostMessage.find(); //.find (finding something inside of a model takes time, so this is an asych function. Therefore we need to put 'await')
-    // res.status(200).json(homePosts);
-    res.status(200).json("Yay it worked!");
+    //this line is retrieving ALL the states we currently have in the database
+    const homePosts = await homePostMessage.find(); //.find (finding something inside of a model takes time, so this is an asych function. Therefore we need to put 'await')
+    res.status(200).json(homePosts);
+    // res.status(200).json("Yay it worked!");
   } catch (error) {
     res.status(404).json({ message: error.message });
   }
 };
 
 //logic for adding different posts
-export const createHomePost = async (req, res) => {
+export const createNewState = async (req, res) => {
 
   try {
     const post = req.body; //post is the informaiton passed from the client
-    const newHomePost = new homePostMessage(post); //creating a new thing based on the homePostMessage model
-    await newHomePost.save();
-    res.status(201).json(newHomePost);
+    
+    console.log("post is: ", post)
+    const newHomePost = new homePostMessage(post); //creating a new entry in the database based on the homePostMessage model
+    await newHomePost.save(); //wait for info to be save in database
+    // console.log("newHomePost is: ", newHomePost) //displays the info that was stored in the database (just a check that it saved properly)
+    res.status(200).json("Yay it worked in createNewState!");
   } catch (error) {
-    res.status(409).json({ message: error.message });
+    res.status(404).json({ message: error.message });
   }
 };
