@@ -27,7 +27,7 @@ function Form() {
   const [isUpdated, setIsUpdated] = React.useState(false);
 
   async function postNewState() {
-    let payload = { title: stateNameRef.current.value, adventures: [] }; //info being sent from client to API,  {"StateName": "Colorado"}
+    let payload = { title: stateNameRef.current.value }; //info being sent from client to API,  {"StateName": "Colorado"}
     // eslint-disable-next-line
     let status = await axios.post(
       "http://localhost:3000/home/newState",
