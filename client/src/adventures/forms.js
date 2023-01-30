@@ -49,14 +49,7 @@ function Form() {
                 </Grid>
                 <Grid item xs={12} sm={4}>
                   <Paper>
-                    <form
-                    //   autoComplete="off"
-                    //   noValidate
-                    //   className={`${classes.root} ${classes.form}`}
-                    //   onSubmit={handleSubmit}
-                    >
                       <Typography variant="h6">
-                        {" "}
                         Details of Your Adventure
                       </Typography>
                       <TextField
@@ -103,15 +96,14 @@ function Form() {
                       >
                         Submit
                       </Button>
-                      <Button
+                      {/* <Button
                         variant="contained"
                         color="secondary"
                         size="small"
                         fullWidth
                       >
                         Clear
-                      </Button>
-                    </form>
+                      </Button> */}
                   </Paper>
                 </Grid>
               </Grid>

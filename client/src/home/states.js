@@ -1,13 +1,12 @@
 //============== React import ==============//
-import axios from "axios";
-import * as React from "react";
+// import axios from "axios";
+import React, {useRef, useEffect} from "react";
 // import { Link } from "react-router-dom";
-import { useEffect } from "react";
 
 //============== Files and Folders imports ==============//
 import Banner from "./banner";
 import Form from "./form";
-import StatesList from "./statesList";
+// import StatesList from "./statesList";
 
 //============== Material UI ==============//
 // import Card from '@mui/material/Card';
@@ -16,8 +15,8 @@ import StatesList from "./statesList";
 // import CardMedia from '@mui/material/CardMedia';
 // import Button from '@mui/material/Button';
 // import Typography from '@mui/material/Typography';
-import Grid from "@mui/material/Grid";
-import  Container  from "@mui/material/Container";
+// import Grid from "@mui/material/Grid";
+// import  Container  from "@mui/material/Container";
 
 //============== Code ==============//
 function States() {

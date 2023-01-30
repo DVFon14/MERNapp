@@ -1,14 +1,14 @@
 //============== React import ==============//
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 //============== Material UI ==============//
 
-import TextField from "@mui/material/TextField";
+// import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import Paper from "@mui/material/Paper";
+// import Paper from "@mui/material/Paper";
 import Container from "@mui/material/Container";
 import Grow from "@mui/material/Grow";
 import Grid from "@mui/material/Grid";
@@ -19,15 +19,26 @@ import axios from "axios";
 
 //============== Code ==============//
 
-function StatesList() {
-  //   async function StatesList(){ //defining function
-  //     //this is reaching out to the API and passing in the API URL
-  //     //The variable statePost is storing the info that comes back from the API URL
-  //     let statePost = await axios.post("http://localhost:3000/home")
-  //     console.log(statePost)
-  //     let statePostData= statePost.data
-  //     console.log("statePost data is: ", statePostData)
-  //   }
+function StatesList(props) {
+
+const [listOfStates, setListOfStates] = useState([]);
+
+  async function GetStatesList() {
+    //this is reaching out to the API and passing in the API URL
+    //The variable statePost is storing the info that comes back from the API URL
+    let statePost = await axios.get("http://localhost:3000/home");
+    // console.log(statePost);
+    let statePostData = statePost.data;
+    // console.log("statePost data is: ", statePostData);
+    setListOfStates(statePostData)
+  }
+
+  //whenever antyhing changes in the 
+  useEffect(() => {
+    GetStatesList();
+    // console.log("props.needToUpdate is: ", props.needToUpdate);
+
+  }, [props.needToUpdate]);
 
   return (
     <div>
@@ -41,11 +52,12 @@ function StatesList() {
               alignItems="stretch"
               spacing={3}
             >
-              <Grid item xs={12} sm={7}>
+              {listOfStates.map((state) =>(
+              <Grid key={state._id} item xs={12} sm={7}>
                 <Card sx={{ maxWidth: 400 }}>
                   <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
-                      User puts state name
+                      {state.title}
                     </Typography>
                   </CardContent>
                   <CardActions>
@@ -59,8 +71,7 @@ function StatesList() {
                   </CardActions>
                 </Card>
               </Grid>
-
-
+              ))}
             </Grid>
           </Container>
         </Grow>
