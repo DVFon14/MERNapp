@@ -7,8 +7,6 @@ const homePostSchema = mongoose.Schema({
     type: String,
     required: true
 },
-  adventures: [String],
-
 });
 
 //Schema turned into a model

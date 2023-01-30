@@ -2,6 +2,8 @@
 //to reduce the logic in routes/homeRoutes
 import homePostMessage from "../models/homePostSchema.js";
 import adventuresModel from "../models/adventuresSchema.js";
+import mongoose from "mongoose";
+
 
 // Retrieve a list of states in Database
 export const getStatePosts = async (req, res) => {
@@ -53,11 +55,12 @@ export const editStatePost = async (req, res) => {
 
     // console.log("post in editStatePost is: ", post);
 
-    // tempPost = { title: post["title"], adventures: [] };
+    if (!mongoose.Types.ObjectId.isValid(post["id"]))
+      return res.status(404).send("No post with that id");
 
     const updatedPost = await homePostMessage.findByIdAndUpdate(
       {_id: post["id"]}, //finds the id
-      { title: post["title"], adventures: [] }, //updated the title and adventures
+      { title: post["title"]}, //updated the title and adventures
       {
         new: true,
       }
