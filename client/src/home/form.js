@@ -15,13 +15,13 @@ import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
+import StatesList from "./statesList";
 
 //============== Code ==============//
 
 function Form() {
   return (
     <div>
-      {" "}
       <Container maxwidth="lg">
         <Grow in>
           <Container>
@@ -32,23 +32,9 @@ function Form() {
               alignItems="stretch"
               spacing={3}
             >
+              
               <Grid item xs={12} sm={7}>
-                <Card sx={{ maxWidth: 345 }}>
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                      User puts state name
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Button size="small">Edit</Button>
-                    <Link to="/adventures">
-                      <Button type="details" className="btn btn-primary">
-                        DETAILS
-                      </Button>
-                    </Link>
-                    <Button size="small">Delete</Button>
-                  </CardActions>
-                </Card>
+                <StatesList />
               </Grid>
               <Grid item xs={12} sm={4}>
                 <Paper>

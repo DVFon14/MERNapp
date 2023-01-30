@@ -50,11 +50,11 @@ function Banner() {
                   Welcome to your U.S. Adventures Tracker!
                 </Typography>
                 <Typography variant="body2" gutterBottom>
-                  On this page you can "Create New State" card by typing in <br/>
+                  On this page you can "Add a New State" card by typing in <br/>
                   the name of a U.S. state (or territory). <br/>
                   <br/>
-                  Then click on the  "Adventures" button to log a description <br/>
-                  of your time at that state! <br/>
+                  Then click on the  "Details" button to log your adventures <br/>
+                  in that state! <br/>
                   <br/>
                   Have fun keeping track of all your wonderful memories!
                 </Typography>
