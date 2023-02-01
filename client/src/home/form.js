@@ -22,8 +22,6 @@ import Grid from "@mui/material/Grid";
 
 import StatesList from "./statesList";
 
-
-
 //============== Code ==============//
 
 function Form() {
@@ -35,7 +33,7 @@ function Form() {
     let payload = { title: stateNameRef.current.value }; //info being sent from client to API,  {"StateName": "Colorado"}
     // eslint-disable-next-line
     let status = await axios.post(
-      "http://localhost:3000/home/newState",
+      "https://us-states-adventures.onrender.com/home/newState",
       payload
     ); //sending the information in payload variable to the designated path
 
@@ -51,26 +49,25 @@ function Form() {
 
   return (
     <div>
+      {/* ADD NEW STATE FROM, from <Container> to </Container> ~ lines 251 to 317 */}
 
-{/* ADD NEW STATE FROM, from <Container> to </Container> ~ lines 251 to 317 */}
-
-      <Container maxwidth="lg" >
-        <Grow in >
-          <Container >
+      <Container maxwidth="lg">
+        <Grow in>
+          <Container>
             <Grid
               //direction="column-reverse"
-              
+
               container
               justify="space-between"
               alignItems="stretch"
               spacing={3}
             >
-              <Grid item xs={12} sm={7} >
+              <Grid item xs={12} sm={7}>
                 <StatesList needToUpdate={isUpdated} />
               </Grid>
-              <Grid item xs={12} sm={4} >
-                <Paper  >
-                  <Typography variant="h6" > Add a New State</Typography>
+              <Grid item xs={12} sm={4}>
+                <Paper>
+                  <Typography variant="h6"> Add a New State</Typography>
                   <TextField
                     name="State name"
                     variant="outlined"

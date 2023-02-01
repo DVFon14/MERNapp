@@ -23,7 +23,7 @@ import TextField from "@mui/material/TextField";
 import DialogContent from "@mui/material/DialogContent";
 
 //============== Files and Folder import ==============//
-import './statesList.css'
+import "./statesList.css";
 
 //============== Code ==============//
 
@@ -47,7 +47,9 @@ function StatesList(props) {
   async function GetStatesList() {
     //this is reaching out to the API and passing in the API URL
     //The variable statePost is storing the info that comes back from the API URL
-    let statePost = await axios.get("http://localhost:3000/home");
+    let statePost = await axios.get(
+      "https://us-states-adventures.onrender.com/home"
+    );
     // console.log(statePost);
     let statePostData = statePost.data;
     // console.log("statePost data is: ", statePostData);
@@ -58,7 +60,10 @@ function StatesList(props) {
     let payload = { id: StatePostId }; //info being sent from client to API,  {"StateName": "Colorado"}
     // console.log("payload in deleteState", payload);
 
-    await axios.post("http://localhost:3000/home/deleteState", payload);
+    await axios.post(
+      "https://us-states-adventures.onrender.com/home/deleteState",
+      payload
+    );
     setIsUpdated(!isUpdated);
   }
 
@@ -66,7 +71,10 @@ function StatesList(props) {
     let payload = { id: editStateValues[0], title: stateNameRef.current.value }; //info being sent from client to API,  {"StateName": "Colorado"}
     console.log("payload in editState", payload);
 
-    await axios.post("http://localhost:3000/home/editState", payload);
+    await axios.post(
+      "https://us-states-adventures.onrender.com/home/editState",
+      payload
+    );
     setIsUpdated(!isUpdated);
   }
 
@@ -78,8 +86,7 @@ function StatesList(props) {
   return (
     <div>
       <Container maxwidth="lg">
-
- {/* EDIT DIALOG BOX STATE, from <Dialog> to </Dialog> ~ lines 114 to 194 */}
+        {/* EDIT DIALOG BOX STATE, from <Dialog> to </Dialog> ~ lines 114 to 194 */}
 
         <Dialog open={openEditDialog} onClose={handleCloseEditDialog}>
           <DialogTitle>Edit State Name</DialogTitle>
@@ -111,25 +118,23 @@ function StatesList(props) {
           </DialogActions>
         </Dialog>
 
-{/* LISTED STATES, from <Grow in> to </Grow> ~ lines 198 to 320 */}
-
+        {/* LISTED STATES, from <Grow in> to </Grow> ~ lines 198 to 320 */}
 
         <Grow in>
-          <Container  >
+          <Container>
             <Grid
               //   direction="column-reverse"
               container
               justify="space-between"
               alignItems="stretch"
               spacing={3}
-              
             >
               {listOfStates.map((state) => (
                 <Grid key={state._id} item xs={12} sm={7}>
-                  <Card sx={{ maxWidth: 400 }} >
+                  <Card sx={{ maxWidth: 400 }}>
                     <CardContent className="ListColor">
                       {/* style={{ background: '#FFE9EC' }} */}
-                      <Typography gutterBottom variant="h5" component="div" >
+                      <Typography gutterBottom variant="h5" component="div">
                         {state.title}
                       </Typography>
                     </CardContent>
@@ -143,7 +148,11 @@ function StatesList(props) {
                         EDIT
                       </Button>
                       {/* In useLocation, the location.state is taken from the state in the next line */}
-                      <Link to="/adventures" style={{ textDecoration: 'none' }} state={state._id}> 
+                      <Link
+                        to="/adventures"
+                        style={{ textDecoration: "none" }}
+                        state={state._id}
+                      >
                         <Button type="details" className="btn btn-primary">
                           DETAILS
                         </Button>

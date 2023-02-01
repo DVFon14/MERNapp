@@ -42,7 +42,10 @@ function Form(props) {
 
     console.log("payload in postNewAdventure is: ", payload);
 
-    await axios.post("http://localhost:3000/home/newAdventure", payload);
+    await axios.post(
+      "https://us-states-adventures.onrender.com/home/newAdventure",
+      payload
+    );
     setIsUpdated(!isUpdated);
   }
 
@@ -52,7 +55,7 @@ function Form(props) {
     //this is reaching out to the API and passing in the API URL
     //The variable adventuresPost is storing the info that comes back from the API URL
     let adventuresPost = await axios.post(
-      "http://localhost:3000/home/getAdventures",
+      "https://us-states-adventures.onrender.com/home/getAdventures",
       payload
     );
     let adventuresPostData = adventuresPost.data;
@@ -66,7 +69,7 @@ function Form(props) {
   }, [isUpdated]);
 
   return (
-    <div >
+    <div>
       <br />
       <div>
         {/* ADD NEW ADVENTURES CREATE FORM*/}
@@ -142,21 +145,20 @@ function Form(props) {
                         postNewAdventure();
                       }}
                     >
-                      Submit <br/>
+                      Submit <br />
                     </Button>
 
-                    <Link to="/states" style={{ textDecoration: 'none' }}>
-                    <Button
-                      variant="contained"
-                      color="error"
-                      size="large"
-                      type="submit"
-                      fullWidth
-                    >
-                      Back to States Page <br/>
-                    </Button>
-                      </Link>
-
+                    <Link to="/states" style={{ textDecoration: "none" }}>
+                      <Button
+                        variant="contained"
+                        color="error"
+                        size="large"
+                        type="submit"
+                        fullWidth
+                      >
+                        Back to States Page <br />
+                      </Button>
+                    </Link>
 
                     {/* <Button
                         variant="contained"

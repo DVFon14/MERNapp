@@ -21,7 +21,7 @@ import DialogContent from "@mui/material/DialogContent";
 
 //============== Files and Folders ==============//
 
-import './adventuresList.css'
+import "./adventuresList.css";
 
 //============== Code ==============//
 
@@ -43,7 +43,7 @@ function AdventuresList(props) {
     //this is reaching out to the API and passing in the API URL
     //The variable statePost is storing the info that comes back from the API URL
     let adventuresPost = await axios.post(
-      "http://localhost:3000/home/getAdventures",
+      "https://us-states-adventures.onrender.com/home/getAdventures",
       payload
     );
     let adventuresPostData = adventuresPost.data;
@@ -58,11 +58,15 @@ function AdventuresList(props) {
   async function deleteAdventure(AdventurePostId) {
     let payload = { id: AdventurePostId }; //info being sent from client to API,  {"StateName": "Colorado"}
 
-    await axios.post("http://localhost:3000/home/deleteAdventures", payload);
+    await axios.post(
+      "https://us-states-adventures.onrender.com/home/deleteAdventures",
+      payload
+    );
     setIsUpdated(!isUpdated);
   }
 
-  async function editAdventures() { //info being sent from client to API
+  async function editAdventures() {
+    //info being sent from client to API
     let payload = {
       id: editValues[5],
       date: dateEditRef.current.value,
@@ -71,9 +75,12 @@ function AdventuresList(props) {
       city: cityEditRef.current.value,
       notes: notesEditRef.current.value,
       linkedStateID: props.StateID,
-    }; 
+    };
 
-    await axios.post("http://localhost:3000/home/editAdventures", payload);
+    await axios.post(
+      "https://us-states-adventures.onrender.com/home/editAdventures",
+      payload
+    );
     setIsUpdated(!isUpdated);
   }
 
@@ -97,11 +104,10 @@ function AdventuresList(props) {
       <br />
       <div>
         <Container maxwidth="lg">
-
           {/* EDIT DIALOG BOX ADVENTURES */}
           <Dialog open={openEditDialog} onClose={handleCloseEditDialog}>
             <DialogTitle>Edit State Name</DialogTitle>
-            <DialogContent >
+            <DialogContent>
               <Grid item xl={15} sx={{ paddingRight: 5 }}>
                 <TextField
                   autoFocus
@@ -195,22 +201,19 @@ function AdventuresList(props) {
                 {listOfAdventures.map((adventure) => (
                   <Grid key={adventure._id} item xs={12} sm={7}>
                     <Card sx={{ maxWidth: 545 }}>
-                      <CardContent className="AdventureListColor" >
+                      <CardContent className="AdventureListColor">
                         <Typography gutterBottom variant="h7" component="div">
                           Date: <br /> {adventure.date} <br />
-                          <br />Details: <br /> {adventure.details} <br />
-                          <br />Co-Adventurers: <br /> {adventure.co_adventurers} <br />
-                          <br />City: <br /> {adventure.city} <br />
-                          <br />Notes: <br /> {adventure.notes} <br />
-
+                          <br />
+                          Details: <br /> {adventure.details} <br />
+                          <br />
+                          Co-Adventurers: <br /> {adventure.co_adventurers}{" "}
+                          <br />
+                          <br />
+                          City: <br /> {adventure.city} <br />
+                          <br />
+                          Notes: <br /> {adventure.notes} <br />
                         </Typography>
-                      
-
-
-
-
-
-                        
                       </CardContent>
                       <CardActions>
                         <Button
