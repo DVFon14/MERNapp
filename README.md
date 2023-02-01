@@ -1,4 +1,4 @@
-**Introduction: A paragraph used to introduce interested parties to the project and needs to include one or more screenshots.**
+**Introduction**
 
 Welcome to your U.S. Adventures Tracker. This website enables you to create "state" cards, and corresponding "adventures" cards, to keep track of all your travels!
 
@@ -22,7 +22,7 @@ This projects consists of three pages:
 
 
 
-**Technologies Used: A list of all technologies, libraries, APIs, etc. used in the project.**
+**Technologies Used:**
 
 The following were installed on the client side:
 npx create-react-app
@@ -54,7 +54,7 @@ https://mui.com/material-ui/react-card/
 
 Trello planning-- https://trello.com/b/skTBMS4J/mern-stack-app
 
-**Unsolved Problems: List any unsolved issues.**
+**Unsolved Problems:**
 
 1) When the user deletes a "states" card, it does not delete the linked "adventures" cards. The data is stored in the database and displayed on the browser. 
 
@@ -72,7 +72,7 @@ Trello planning-- https://trello.com/b/skTBMS4J/mern-stack-app
 
 
 
-**Future Enhancements: Identify future features and enhancements planned for the project.**
+**Future Enhancements:**
 
 1) I would like to change the layout of the "states" page by changing the "form" set up and instead having radio buttons connected to a third party API. The user would click on a state radio button and that button would then be disabled (so as to prevent the user from making multiple state cards of the same name), then a card would auto generate with information about that state. This information would include the state's website, demonym, state nicknames, and time zone. This is the API I would use: https://rapidapi.com/aptitudeapps/api/us-states/details
 
