@@ -142,7 +142,8 @@ function StatesList(props) {
                       >
                         EDIT
                       </Button>
-                      <Link to="/adventures" style={{ textDecoration: 'none' }} state={state._id}>
+                      {/* In useLocation, the location.state is taken from the state in the next line */}
+                      <Link to="/adventures" style={{ textDecoration: 'none' }} state={state._id}> 
                         <Button type="details" className="btn btn-primary">
                           DETAILS
                         </Button>

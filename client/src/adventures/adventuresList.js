@@ -190,19 +190,27 @@ function AdventuresList(props) {
                 container
                 justify="space-between"
                 alignItems="stretch"
-                spacing={3}
+                spacing={1}
               >
                 {listOfAdventures.map((adventure) => (
                   <Grid key={adventure._id} item xs={12} sm={7}>
-                    <Card sx={{ maxWidth: 345 }}>
+                    <Card sx={{ maxWidth: 545 }}>
                       <CardContent className="AdventureListColor" >
-                        <Typography gutterBottom variant="h6" component="div">
-                          Date: {adventure.date} <br />
-                          Details: {adventure.details} <br />
-                          Co-Adventurers: {adventure.co_adventurers} <br />
-                          City: {adventure.city} <br />
-                          Notes: {adventure.notes} <br />
+                        <Typography gutterBottom variant="h7" component="div">
+                          Date: <br /> {adventure.date} <br />
+                          <br />Details: <br /> {adventure.details} <br />
+                          <br />Co-Adventurers: <br /> {adventure.co_adventurers} <br />
+                          <br />City: <br /> {adventure.city} <br />
+                          <br />Notes: <br /> {adventure.notes} <br />
+
                         </Typography>
+                      
+
+
+
+
+
+                        
                       </CardContent>
                       <CardActions>
                         <Button

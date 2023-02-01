@@ -12,7 +12,9 @@ import Button from "@mui/material/Button";
 function Login() {
   return (
     <>
+    <br/>
       <center>
+        <br/>
         <h1>Welcome to your U.S. adventures tracker!</h1>
         <h3>
           On this website you can create a detailed log of each of your national
