@@ -7,12 +7,20 @@ This projects consists of three pages:
 1) Login
    For now, this is simply a template for login page. There is not real authentication nor authorization. Entering any email or password will allow you to use the site. The information you enter will not be stored. 
 
+   ![LoginPage.png](./README_images/LoginPage.png)
+
 2) States Page
     On this page you can "Add a New State" card by typing in
     the name of a U.S. state. You can edit the card or delete it as you see fit. Clicking on the "Details" option on the state card will enable you to log your adventures or read the adventures you have logged.
 
+    ![StatesPage.png](./README_images/StatesPage.png)
+
 3) Adventures Page
     Here you will find the logs of your adventures according to states. You can edit or delete any of the "Adventures" card you create. 
+
+    ![AdventuresPage.png](./README_images/AdventuresPage.png)
+
+
 
 **Technologies Used: A list of all technologies, libraries, APIs, etc. used in the project.**
 
@@ -48,15 +56,15 @@ Trello planning-- https://trello.com/b/skTBMS4J/mern-stack-app
 
 **Unsolved Problems: List any unsolved issues.**
 
-1) When the user deletes a "states" card, it does not delete the linked "adventures" card. The data is stored in the database and displayed on the browswer. 
+1) When the user deletes a "states" card, it does not delete the linked "adventures" cards. The data is stored in the database and displayed on the browser. 
 
 2) Neither of the forms clear after the user hits "submit."
 
 3) The cards need to be resized, especially the "adventures" cards. As of right now, a long sentence will not display on the card as the words get cut off. (The long sentence will display in the edit dialogue box.) The restriction on the containers maybe causing an issue here. 
 
-4) In the "states" page, the user is supposed to create only one card per state. However, there is nothing currently forcing that. For example, the user is supposed to have only one Colorado card and can have many "adventures" card corresponding to it, but they can currently create multiple Colorado cards.
+4) In the "states" page, the user is supposed to create only one card per state. However, there is nothing currently forcing that. For example, the user is supposed to have only one Colorado card and can have many "adventures" cards corresponding to it, but they can currently create multiple Colorado cards.
 
-5) User can navigate into to the "login" page even after they are inside the program. I would like to disable this. 
+5) User can navigate into to the "login" page even after they are in the program. I would like to disable this. 
 
 6) The banner in the "states" page container is not set properly.
 
@@ -66,11 +74,11 @@ Trello planning-- https://trello.com/b/skTBMS4J/mern-stack-app
 
 **Future Enhancements: Identify future features and enhancements planned for the project.**
 
-1) I would like to change the layout of the "states" page by getting rid of the cards set up and instead having radio buttons connected to a third party API. The user would click on a state button and that button would be disabled (so as to prevent the user from making multiple state cards of the same name), then a card would auto generate with information about that state. This information would include the state's website, demonym, state nicknames, and time zone. This is the API I would use: https://rapidapi.com/aptitudeapps/api/us-states/details
+1) I would like to change the layout of the "states" page by changing the "form" set up and instead having radio buttons connected to a third party API. The user would click on a state radio button and that button would then be disabled (so as to prevent the user from making multiple state cards of the same name), then a card would auto generate with information about that state. This information would include the state's website, demonym, state nicknames, and time zone. This is the API I would use: https://rapidapi.com/aptitudeapps/api/us-states/details
 
 2) I would like to give the user the option of organizing their "adventures" cards, either my dragging and dropping them in their preferred layout, or collapsing them based on matching characteristics of the "date," "city," or "co-adventurers."
 
-3) I would like for the states cards to either be organized alphabetically, or for the user to have the ability to a drag and drop them in the order they want. 
+3) I would like for the states cards to either be organized alphabetically, or for the user to have the ability to drag and drop them in the order they want. 
 
 4) Create and actual authorization and authentication feature. 
 
