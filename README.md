@@ -1,6 +1,18 @@
 **Introduction: A paragraph used to introduce interested parties to the project and needs to include one or more screenshots.**
 
+Welcome to your U.S. Adventures Tracker. This website enables you to create "state" cards, and corresponding "adventures" cards, to keep track of all your travels!
 
+This projects consists of three pages:
+
+1) Login
+   For now, this is simply a template for login page. There is not real authentication nor authorization. Entering any email or password will allow you to use the site. The information you enter will not be stored. 
+
+2) States Page
+    On this page you can "Add a New State" card by typing in
+    the name of a U.S. state. You can edit the card or delete it as you see fit. Clicking on the "Details" option on the state card will enable you to log your adventures or read the adventures you have logged.
+
+3) Adventures Page
+    Here you will find the logs of your adventures according to states. You can edit or delete any of the "Adventures" card you create. 
 
 **Technologies Used: A list of all technologies, libraries, APIs, etc. used in the project.**
 
@@ -40,11 +52,13 @@ Trello planning-- https://trello.com/b/skTBMS4J/mern-stack-app
 
 2) Neither of the forms clear after the user hits "submit."
 
-3) In the "states" page, the user is supposed to create only one card per state. However, there is nothing currently forcing that. For example, the user is supposed to have only one Colorado card and can have many "adventures" card corresponding to it, but they can currently create multiple Colorado cards.
+3) The cards need to be resized, especially the "adventures" cards. As of right now, a long sentence will not display on the card as the words get cut off. (The long sentence will display in the edit dialogue box.) The restriction on the containers maybe causing an issue here. 
 
-4) User can navigate into to the "login" page even after they are inside the program. I would like to disable this. 
+4) In the "states" page, the user is supposed to create only one card per state. However, there is nothing currently forcing that. For example, the user is supposed to have only one Colorado card and can have many "adventures" card corresponding to it, but they can currently create multiple Colorado cards.
 
-5) The banner in the "states" page container is not set properly.
+5) User can navigate into to the "login" page even after they are inside the program. I would like to disable this. 
+
+6) The banner in the "states" page container is not set properly.
 
  
 
