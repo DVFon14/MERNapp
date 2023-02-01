@@ -11,7 +11,7 @@ function States() {
 
 
   return (
-    <div>
+    <div >
       <Banner />
       <br />
       <Form />

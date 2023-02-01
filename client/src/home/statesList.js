@@ -22,6 +22,9 @@ import DialogTitle from "@mui/material/DialogTitle";
 import TextField from "@mui/material/TextField";
 import DialogContent from "@mui/material/DialogContent";
 
+//============== Files and Folder import ==============//
+import './statesList.css'
+
 //============== Code ==============//
 
 function StatesList(props) {
@@ -112,19 +115,21 @@ function StatesList(props) {
 
 
         <Grow in>
-          <Container>
+          <Container  >
             <Grid
               //   direction="column-reverse"
               container
               justify="space-between"
               alignItems="stretch"
               spacing={3}
+              
             >
               {listOfStates.map((state) => (
                 <Grid key={state._id} item xs={12} sm={7}>
-                  <Card sx={{ maxWidth: 400 }}>
-                    <CardContent>
-                      <Typography gutterBottom variant="h5" component="div">
+                  <Card sx={{ maxWidth: 400 }} >
+                    <CardContent className="ListColor">
+                      {/* style={{ background: '#FFE9EC' }} */}
+                      <Typography gutterBottom variant="h5" component="div" >
                         {state.title}
                       </Typography>
                     </CardContent>

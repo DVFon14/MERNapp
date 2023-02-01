@@ -19,6 +19,10 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 
+//============== Files and Folders ==============//
+
+import './adventuresList.css'
+
 //============== Code ==============//
 
 function AdventuresList(props) {
@@ -97,7 +101,7 @@ function AdventuresList(props) {
           {/* EDIT DIALOG BOX ADVENTURES */}
           <Dialog open={openEditDialog} onClose={handleCloseEditDialog}>
             <DialogTitle>Edit State Name</DialogTitle>
-            <DialogContent>
+            <DialogContent >
               <Grid item xl={15} sx={{ paddingRight: 5 }}>
                 <TextField
                   autoFocus
@@ -191,8 +195,8 @@ function AdventuresList(props) {
                 {listOfAdventures.map((adventure) => (
                   <Grid key={adventure._id} item xs={12} sm={7}>
                     <Card sx={{ maxWidth: 345 }}>
-                      <CardContent>
-                        <Typography gutterBottom variant="h5" component="div">
+                      <CardContent className="AdventureListColor" >
+                        <Typography gutterBottom variant="h6" component="div">
                           Date: {adventure.date} <br />
                           Details: {adventure.details} <br />
                           Co-Adventurers: {adventure.co_adventurers} <br />

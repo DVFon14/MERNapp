@@ -66,7 +66,7 @@ function Form(props) {
   }, [isUpdated]);
 
   return (
-    <div>
+    <div >
       <br />
       <div>
         {/* ADD NEW ADVENTURES CREATE FORM*/}
