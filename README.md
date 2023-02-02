@@ -64,9 +64,7 @@ Live website -- https://us-statesadventures.onrender.com/
 
 4. In the "states" page, the user is supposed to create only one card per state. However, there is nothing currently forcing that. For example, the user is supposed to have only one Colorado card and can have many "adventures" cards corresponding to it, but they can currently create multiple Colorado cards.
 
-5. User can navigate into to the "login" page even after they are in the program. I would like to disable this.
-
-6. The banner in the "states" page container is not set properly.
+5. The banner in the "states" page container is not set properly. It does not show as I'd like on the browser nor on mobile. 
 
 **Future Enhancements:**
 
@@ -76,7 +74,9 @@ Live website -- https://us-statesadventures.onrender.com/
 
 3. I would like for the states cards to either be organized alphabetically, or for the user to have the ability to drag and drop them in the order they want.
 
-4. Create and actual authorization and authentication feature.
+4. Allow user to include photos on their adventures cards. 
+
+5. Create and actual authorization and authentication feature.
 
 ///////////////////////////////////////////
 ///////////////////////////////////////////

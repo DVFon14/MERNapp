@@ -73,16 +73,17 @@ export const editStatePost = async (req, res) => {
 };
 
 ///////////////////////////////////////
-// Adventure Routes
+///////////////////////////////////////
+////////// Adventure Routes ///////////
+///////////////////////////////////////
 ///////////////////////////////////////
 
-// Retrieve a list of states in Database
+
+// Retrieve a list of adventures in Database
 export const getAdventuresPosts = async (req, res) => {
   try {
     const post = req.body;
-    // console.log("post in getAdventuresPosts is: ", post);
-
-    //this line is retrieving ALL the states we currently have in the database
+    //this line is retrieving ALL the adventures we currently have in the database
     const allAdventurePosts = await adventuresModel.find({
       linkedStateID: post["id"],
     }); //.find (finding something inside of a model takes time, so this is an asych function. Therefore we need to put 'await')
@@ -109,7 +110,7 @@ export const createNewAdventure = async (req, res) => {
   }
 };
 
-// Retrieve a list of states in Database
+// Retrieve a list of adventures in Database
 export const deleteAdventurePost = async (req, res) => {
   try {
     const post = req.body; //post is the informaiton passed from the client. The id is the only info we are passing
@@ -127,7 +128,7 @@ export const deleteAdventurePost = async (req, res) => {
   }
 };
 
-// Edit a state in Database
+// Edit an adventure in Database
 export const editAdventuresPost = async (req, res) => {
   try {
     const post = req.body; //post is the information, both the id and title, passed from the client

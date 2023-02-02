@@ -1,5 +1,5 @@
 //information (model) the home posts should have: title (state name)and date of creation
-import mongoose, { mongo } from "mongoose";
+import mongoose from "mongoose";
 // import { stringify } from "querystring";
 
 const adventuresSchema = mongoose.Schema({
