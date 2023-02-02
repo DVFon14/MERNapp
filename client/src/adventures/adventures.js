@@ -11,9 +11,8 @@ import Forms from './forms'
 //============== Code ==============//
 
 function Adventures() {
-  const location = useLocation();
+  const location = useLocation(); //passing the useLocation hook
   const StateID = location.state;
-  // console.log("data in adventures is: ", data);
 
   return (
     <div >
@@ -24,3 +23,7 @@ function Adventures() {
   )
 }
 export default Adventures
+
+//useLocation allows us to pass infomration from one link to another
+//in this case we pass the state._id info from /states to /adventures
+//to use useLocation we need routes, both use the react-router-dom

@@ -3,19 +3,20 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 
+//============== Axios ==============//
+
+import axios from "axios";
+
 //============== Material UI ==============//
 
-// import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-// import Paper from "@mui/material/Paper";
 import Container from "@mui/material/Container";
 import Grow from "@mui/material/Grow";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
-import axios from "axios";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogTitle from "@mui/material/DialogTitle";
@@ -23,6 +24,7 @@ import TextField from "@mui/material/TextField";
 import DialogContent from "@mui/material/DialogContent";
 
 //============== Files and Folder import ==============//
+
 import "./statesList.css";
 
 //============== Code ==============//
@@ -50,15 +52,12 @@ function StatesList(props) {
     let statePost = await axios.get(
       "https://us-states-adventures.onrender.com/home"
     );
-    // console.log(statePost);
     let statePostData = statePost.data;
-    // console.log("statePost data is: ", statePostData);
     setListOfStates(statePostData);
   }
 
   async function deleteState(StatePostId) {
     let payload = { id: StatePostId }; //info being sent from client to API,  {"StateName": "Colorado"}
-    // console.log("payload in deleteState", payload);
 
     await axios.post(
       "https://us-states-adventures.onrender.com/home/deleteState",
@@ -129,6 +128,7 @@ function StatesList(props) {
               alignItems="stretch"
               spacing={3}
             >
+{/* state is a variable we created. We could have named 'state' anything we wanted  */}
               {listOfStates.map((state) => (
                 <Grid key={state._id} item xs={12} sm={7}>
                   <Card sx={{ maxWidth: 400 }}>
@@ -147,11 +147,11 @@ function StatesList(props) {
                       >
                         EDIT
                       </Button>
-                      {/* In useLocation, the location.state is taken from the state in the next line */}
-                      <Link
-                        to="/adventures"
+{/* In useLocation, the location.state is taken from the state in the next line */}
+                      <Link to="/adventures" state={state._id}
+
+                        
                         style={{ textDecoration: "none" }}
-                        state={state._id}
                       >
                         <Button type="details" className="btn btn-primary">
                           DETAILS

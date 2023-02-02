@@ -1,8 +1,10 @@
 //============== React import ==============//
 
 // eslint-disable-next-line
-import React, { useEffect, useRef } from "react";
-// import { Link } from "react-router-dom";
+import React, { useRef } from "react";
+
+//============== Axios ==============//
+
 import axios from "axios";
 
 //============== Material UI ==============//
@@ -14,9 +16,6 @@ import Paper from "@mui/material/Paper";
 import Container from "@mui/material/Container";
 import Grow from "@mui/material/Grow";
 import Grid from "@mui/material/Grid";
-// import Card from "@mui/material/Card";
-// import CardContent from "@mui/material/CardContent";
-// import CardActions from "@mui/material/CardActions";
 
 //============== File imports ==============//
 
@@ -49,7 +48,7 @@ function Form() {
 
   return (
     <div>
-      {/* ADD NEW STATE FROM, from <Container> to </Container> ~ lines 251 to 317 */}
+      {/* ADD NEW STATE FORM, from <Container> to </Container> ~ lines 251 to 317 */}
 
       <Container maxwidth="lg">
         <Grow in>
